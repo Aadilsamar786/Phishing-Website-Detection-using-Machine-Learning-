@@ -1,5 +1,5 @@
 # Objective
-    
+     A popular social engineering technique that imitates reliable webpages and unified resource locators (URLs) is called phishing websites. This project aims to train deep neural nets and machine learning models using a dataset designed to identify phishing websites. Website URLs, both benign and phishing, are collected to create a dataset, from which necessary URLs and content-based attributes are retrieved. Every model's performance level is measured and contrasted.
 
 # Information  Gathering
   The collection of phishing URLs was gathered from PhishTank, an open-source tool. This site offers a collection of phishing URLs that are updated hourly and come in several formats, including csv and json. https://www.phishtank.com/developer_info.php is the link to download the data. To train, 5000 randomly selected phishing URLs are gathered from this dataset.
