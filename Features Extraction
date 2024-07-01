@@ -1,13 +1,10 @@
-# Url Features Extraction
-importing required packages for this section
+#importing required packages for this section
 from urllib.parse import urlparse,urlencode
 import ipaddress
 import re
 
 """#### **3.1.1. Domain of the URL**
-Here, we are just extracting the domain present in the URL. This feature doesn't have much significance in the training. May even be dropped while training the model.
-"""
-'''
+Here, we are just extracting the domain present in the URL."""
 # 1.Domain of the URL (Domain) 
 def getDomain(url):  
   domain = urlparse(url).netloc
@@ -17,10 +14,7 @@ def getDomain(url):
 
 """#### **3.1.2. IP Address in the URL**
 
-Checks for the presence of IP address in the URL. URLs may have IP address instead of domain name. If an IP address is used as an alternative of the domain name in the URL, we can be sure that someone is trying to steal personal information with this URL.
-
-If the domain part of URL has IP address, the value assigned to this feature is 1 (phishing) or else 0 (legitimate).
-"""
+Checks for the presence of IP address in the URL. URLs may have IP address instead of domain name.
 
 # 2.Checks for IP address in URL (Have_IP)
 def havingIP(url):
@@ -32,8 +26,7 @@ def havingIP(url):
   return ip
 
 """#### **3.1.3. "@" Symbol in URL**
-
-Checks for the presence of '@' symbol in the URL. Using “@” symbol in the URL leads the browser to ignore everything preceding the “@” symbol and the real address often follows the “@” symbol. 
+ 
 
 If the URL has '@' symbol, the value assigned to this feature is 1 (phishing) or else 0 (legitimate).
 """
@@ -50,7 +43,6 @@ def haveAtSign(url):
 
 Computes the length of the URL. Phishers can use long URL to hide the doubtful part in the address bar. In this project, if the length of the URL is greater than or equal 54 characters then the URL classified as phishing otherwise legitimate.
 
-If the length of URL >= 54 , the value assigned to this feature is 1 (phishing) or else 0 (legitimate).
 """
 
 # 4.Finding the length of URL and categorizing (URL_Length)
@@ -99,7 +91,6 @@ def redirection(url):
 
 Checks for the presence of "http/https" in the domain part of the URL. The phishers may add the “HTTPS” token to the domain part of a URL in order to trick users.
 
-If the URL has "http/https" in the domain part, the value assigned to this feature is 1 (phishing) or else 0 (legitimate).
 """
 
 # 7.Existence of “HTTPS” Token in the Domain Part of the URL (https_Domain)
@@ -112,9 +103,8 @@ def httpDomain(url):
 
 """#### **3.1.8. Using URL Shortening Services “TinyURL”**
 
-URL shortening is a method on the “World Wide Web” in which a URL may be made considerably smaller in length and still lead to the required webpage. This is accomplished by means of an “HTTP Redirect” on a domain name that is short, which links to the webpage that has a long URL. 
+URL shortening is a method on the “World Wide Web” in which a URL may be made considerably smaller in length and still lead to the required webpage.
 
-If the URL is using Shortening Services, the value assigned to this feature is 1 (phishing) or else 0 (legitimate).
 """
 
 #listing shortening services
@@ -137,9 +127,7 @@ def tinyURL(url):
 
 """#### **3.1.9. Prefix or Suffix "-" in Domain**
 
-Checking the presence of '-' in the domain part of URL. The dash symbol is rarely used in legitimate URLs. Phishers tend to add prefixes or suffixes separated by (-) to the domain name so that users feel that they are dealing with a legitimate webpage. 
-
-If the URL has '-' symbol in the domain part of the URL, the value assigned to this feature is 1 (phishing) or else 0 (legitimate).
+ (phishing) or else 0 (legitimate).
 """
 
 # 9.Checking for Prefix or Suffix Separated by (-) in the Domain (Prefix/Suffix)
@@ -174,7 +162,6 @@ from datetime import datetime
 """#### **3.2.1. DNS Record**
 
 For phishing websites, either the claimed identity is not recognized by the WHOIS database or no records founded for the hostname. 
-If the DNS record is empty or not found then, the value assigned to this feature is 1 (phishing) or else 0 (legitimate).
 """
 
 # 11.DNS Record availability (DNS_Record)
